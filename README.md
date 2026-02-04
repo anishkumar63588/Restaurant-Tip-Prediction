@@ -28,11 +28,11 @@ Quick stats from `.describe()`:
 
 No missing values were found (`244` non-null rows in all columns).
 
-## EDA highlights (from outputs)
+## EDA highlights
 - **Tip distribution by sex** was visualized with histograms.
 - **Tip vs total_bill** scatter plot suggests a positive relationship.
 
-Correlation with `tip` (selected values from the notebook output):
+Correlation with `tip`:
 - `total_bill`: **0.6757** (strongest)
 - `size`: **0.4893**
 - `is_weekend`: **0.1251**
@@ -40,11 +40,11 @@ Correlation with `tip` (selected values from the notebook output):
 - `is_male`: **0.0889**
 - `smoker`: **0.0059** (smallest)
 
-## Preprocessing (as implemented in the notebook)
+## Preprocessing
 Categorical columns were converted to numeric:
 - `is_male`: Male → 1, Female → 0
 - `smoker`: Yes → 1, No → 0
-- `is_weekend`: Sun → 1, else → 0 (per notebook mapping)
+- `is_weekend`: Sun → 1, else → 0 
 - `is_dinner`: Dinner → 1, Lunch → 0
 
 Then the original columns `sex`, `day`, and `time` were dropped.
@@ -60,16 +60,11 @@ Two regression approaches were trained using scikit-learn pipelines with scaling
 2) **Polynomial Regression (PolynomialFeatures) + StandardScaler + LinearRegression**
 - Reported **MAE: 1.3766251499148412**
 
-## Conclusion (based on notebook outputs)
+## Conclusion
 - The dataset shows **a clear positive relationship** between `total_bill` and `tip`, and party `size` also correlates moderately with `tip`.
 - After encoding categorical variables and removing `smoker`, the notebook compares linear and polynomial regression (both scaled).
 - **Polynomial regression did not improve performance** over linear regression (MAE is nearly identical: ~1.375 vs ~1.377), suggesting the added complexity does not help on this dataset/settings.
 - Overall, a **simple linear model performs as well as a more complex polynomial model** for the evaluated setup.
-
-## Notes / potential improvements
-- Consider using a clearer weekend mapping (typically Sat/Sun as weekend).
-- Use cross-validation and additional metrics (R², RMSE) for more robust evaluation.
-- Try tree-based models (Random Forest, Gradient Boosting) to capture non-linearities without manual polynomial features.
 
 ## How to run
 1. Open the notebook: `Notebook - Regression Project.ipynb`
